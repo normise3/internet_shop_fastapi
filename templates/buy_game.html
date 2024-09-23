@@ -1,0 +1,84 @@
+{% extends "basic.html" %}
+{% block buy_game %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Store</title>
+<style>
+    body {
+          display: flex;
+          flex-direction: column;
+          min-height: 100vh;
+          font-size: 1.1rem;
+          line-height: 1.7;
+          font-family: 'PT Sans', sans-serif;
+      }
+    .hero {
+      background-color: #f8f9fa;
+      padding: 60px 0;
+      text-align: center;
+    }
+    .hero h1 {
+      font-size: 2.5rem;
+      font-weight: 600;
+    }
+    .hero p {
+      font-size: 1.25rem;
+      font-weight: 400;
+    }
+    .game-image {
+      max-width: 100%;
+      border-radius: 10px;
+    }
+    .purchase-info {
+      padding: 20px;
+      border-radius: 10px;
+    }
+    .purchase-info h2 {
+      font-size: 1.5rem;
+      font-weight: 600;
+    }
+    .btn-custom {
+      background-color: rgb(225, 108, 10);
+      color: #fff;
+      font-size: 1.3rem;
+      font-weight: 500;
+    }
+    .btn-custom:hover {
+      background-color: rgb(240, 108, 10);
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+<!-- Game Details -->
+<div class="container my-5">
+  <div class="row">
+    <div class="col-lg-6 mb-4 mb-lg-0">
+      <img src={{game[0]['img']}} alt="Game Image" class="game-image">
+    </div>
+    <div class="col-lg-6">
+      <div class="purchase-info">
+        <h2 class="lead">{{game[0]['name']}}</h2>
+        <p class="lead">Опис гри: {{game[0]['about_game']}}</p>
+        <p class="lead" ><strong>Цена:</strong> ${{game[0]['price']}}</p>
+        <p class="lead" ><strong>Рейтинг:</strong> {{game[0]['metascore']}}</p>
+        <p class="lead" ><strong>Жанр:</strong> {{game[0]['description']}}</p>
+        <p class="lead" ><strong>Bік:</strong> {{game[0]['age']}}</p>
+        <p class="lead" ><strong>Платформа:</strong> {{game[0]['platform']}}</p>
+        <a href="#" class="btn btn-custom btn-lg" onclick="window.location.href='{{url_for('payment_page')}}'">Купити</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container my-5">
+  <p class="centered-text">Политика возврата: Если вы не удовлетворены покупкой, вы можете вернуть товар в течение 30 дней с момента покупки. Товар должен быть в оригинальной упаковке и не использован.</p>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+{% endblock buy_game %}

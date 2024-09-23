@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Game Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=PT+Sans:ital,wght@0,400;0,700;1,400;1,700&family=Raleway:wght@100&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://cdn2.iconfinder.com/data/icons/red-and-sand/200/game-store-512.png" sizes="48x48" type="image/png">
+  <style>
+       body {
+              display: flex;
+              flex-direction: column;
+              min-height: 100vh;
+              font-size: 1.1rem;
+              line-height: 1.7;
+              font-family: 'PT Sans', sans-serif;
+        }
+
+        main {
+          flex: 1;
+        }
+
+        footer {
+            margin-top: auto;
+        }
+
+        .team-member {
+            margin-bottom: 30px;
+        }
+
+        .team-member {
+            margin-bottom: 30px;
+        }
+
+        .team-member img {
+            border-radius: 50%;
+            max-width: 150px;
+            margin-bottom: 15px;
+        }
+
+        body{
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        .button_buy {
+            --bs-btn-color: #fff;
+            --bs-btn-bg: rgb(225, 108, 10);
+            --bs-btn-border-color: rgb(225, 108, 10);
+            --bs-btn-hover-color: #fff;
+            --bs-btn-hover-bg: rgb(240, 108, 10);
+            --bs-btn-hover-border-color: rgb(225, 108, 10);
+            --bs-btn-focus-shadow-rgb: 49, 132, 253;
+            --bs-btn-active-color: #fff;
+            --bs-btn-active-bg: rgb(225, 108, 10);
+            --bs-btn-active-border-color:rgb(225, 108, 10);
+            --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #fff;
+            --bs-btn-disabled-bg: rgb(225, 108, 10);
+            --bs-btn-disabled-border-color: rgb(225, 108, 10);
+        }
+        h5{
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+        .btn-light {
+            --bs-btn-color: white;
+            --bs-btn-bg: rgb(225, 108, 10);
+            --bs-btn-hover-color: white;
+            --bs-btn-hover-bg: rgb(240, 108, 10);
+            --bs-btn-focus-shadow-rgb: 211, 212, 213;
+            --bs-btn-active-color: white;
+            --bs-btn-active-bg: #c6c7c8;
+            --bs-btn-active-shadow: inset 0 10px 5px rgba(0, 0, 0, 0.125);
+            --bs-btn-disabled-color: #000;
+            --bs-btn-disabled-bg: #f8f9fa;
+            --bs-btn-disabled-border-color: #f8f9fa;
+        }
+        .btn-light {
+            --bs-btn-hover-border-color: #ebeced
+        }
+        .btn {
+            transition: color .25s ease-in-out, background-color .25s ease-in-out, border-color .25s ease-in-out, box-shadow .25s ease-in-out;
+        }
+  </style>
+</head>
+<body>
+<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none">
+          <div style="margin-left: 220px;" ><img src="https://cdn2.iconfinder.com/data/icons/red-and-sand/200/game-store-512.png" style="width: 50px; margin-top: -11px;">
+        <span class="fs-4" >Game Store</span></div>
+      </a>
+      <ul class="nav nav-pills" style="margin-right: 220px;">
+        <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link active" aria-current="page" style="background-color: rgb(225, 108, 10);">Home</a></li>
+        <li class="nav-item"><a href="{{ url_for('all_games')}}" class="nav-link" style="color: rgb(225, 108, 10);">All games</a></li>
+        <li class="nav-item"><a href="{{ url_for('about_us')}}" class="nav-link" style="color: rgb(225, 108, 10);">About us</a></li>
+      </ul>
+</header>
+
+<main>
+
+  {% block home %}
+  {% endblock home %}
+
+  {% block buy_game %}
+  {% endblock buy_game %}
+
+  {% block all_games %}
+  {% endblock all_games %}
+
+  {% block about_us %}
+  {% endblock about_us %}
+
+  {% block payment %}
+  {% endblock payment %}
+
+  {% block payment_success %}
+  {% endblock payment_success %}
+</main>
+
+<footer class="py-3 my-4">
+    <ul class="nav justify-content-center border-bottom pb-3 mb-3">
+      <li class="nav-item"><a href="{{ url_for('home') }}" class="nav-link px-2" style="color: rgb(225, 108, 10);">Home</a></li>
+      <li class="nav-item"><a href="{{ url_for('all_games')}}" class="nav-link px-2" style="color: rgb(225, 108, 10);">All games</a></li>
+      <li class="nav-item"><a href="{{ url_for('about_us') }}" class="nav-link px-2" style="color: rgb(225, 108, 10);">About us</a></li>
+    </ul>
+    <p class="text-center" style="color: rgb(225, 108, 10);">© 2024 Company, Inc</p>
+</footer>
+</body>
+</html>

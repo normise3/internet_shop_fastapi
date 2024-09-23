@@ -1,0 +1,40 @@
+{% extends "basic.html" %}
+{% block home %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<section class="hero text-white text-center py-5">
+        <div class="container" style="color: black; margin-top:-30px;">
+            <h2 class="display-4">Ласкаво просимо до нашого магазину!</h2>
+            <p class="lead">Знайдіть найновіші та найпопулярніші ігри прямо тут.</p>
+            <a href="#" class="btn btn-light btn-lg" onclick="window.location.href='{{url_for('all_games')}}'">Переглянути всі ігри</a>
+        </div>
+    </section>
+<section class="featured py-5" style="margin-top: -30px;">
+    <div class="container">
+        <div class="row">
+            {% if games %}
+                {% for game in games %}
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <img src="{{game.img}}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">{{game.name}}</h5>
+                                <p class="card-text">Ціна: ${{game.price}} </p>
+                                <a href="#" onclick="window.location.href='{{url_for('buy_game', game_name=game.name_for_url)}}'" class="btn button_buy">Докладніше</a>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p>No games found.</p>
+            {% endif %}
+        </div>
+    </div>
+</section>
+</body>
+</html>
+{% endblock home %}
